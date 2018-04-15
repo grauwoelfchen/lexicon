@@ -1,4 +1,6 @@
 #![feature(slice_patterns)]
+#![cfg_attr(test, feature(plugin))]
+#![cfg_attr(test, plugin(clippy))]
 
 extern crate lexicon;
 

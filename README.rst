@@ -24,6 +24,22 @@ Your team's lexicon using `.toml` with keys like `Cargo.toml`.
   repository: https://example.org/hoi/zaeme
 
 
+Development
+-----------
+
+.. code:: zsh
+
+  % make help
+  build       Run debug build
+  clean       Spruce up
+  coverage    Generate coverage report of unit tests using kcov (alias: cov)
+  document    Generate documentation files (alias: doc)
+  format      Check format without changes (alias: fmt)
+  help        Display this message
+  lint        Check code style using clippy
+  test        Run unit tests and integration tests
+
+
 License
 -------
 
