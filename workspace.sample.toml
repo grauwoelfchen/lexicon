@@ -1,0 +1,21 @@
+version = "0.0.1"
+
+[[packages]]
+id = "codename-website"
+name = "Website"
+# version =
+repository = "https://example.org/user/repository-name"
+description = ""
+keywords = ["rust"]
+
+  [[dependencies]]
+
+[[packages]]
+id = "codename-application"
+name = "Application"
+# version =
+repository = "https://example.org/user/repository-name"
+description = ""
+keywords = ["python", "pyramid"]
+
+  [[dependencies]]
