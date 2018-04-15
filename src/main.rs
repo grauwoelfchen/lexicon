@@ -16,15 +16,11 @@ fn main() {
     panic!("run: lexicon <file>");
   }
 
-  let ws = workspace::load(&path);
-
   // just display package attributes
-  match ws.packages {
-    Some(packages) => {
-      for package in packages {
-        println!("{}", package);
-      }
-    },
-    None => (),
+  let ws = workspace::load(&path);
+  if let Some(packages) = ws.packages {
+    for package in packages {
+      println!("{}", package);
+    }
   }
 }
