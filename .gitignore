@@ -2,5 +2,7 @@
 **/*.rs.bk
 Cargo.lock
 
+.env.ci
+
 /.tools/gitlab-ci-multi-runner
 /.tools/kcov

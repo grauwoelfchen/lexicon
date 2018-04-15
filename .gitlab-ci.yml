@@ -1,0 +1,89 @@
+stages:
+  - check
+  - lint
+  - test
+  - coverage
+  - build
+  - pages
+
+check:
+  stage: check
+  image: grauwoelfchen/rust-ci-tools:nightly
+  before_script:
+    - rustc --version
+    - cargo --version
+    - cargo fmt --version
+  script:
+    - make format
+  except:
+    - tags
+
+lint:
+  stage: lint
+  image: grauwoelfchen/rust-ci-tools:nightly
+  before_script:
+    - rustc --version
+    - cargo --version
+    - cargo clippy --version
+  script:
+    - make lint
+  except:
+    - tags
+
+test:
+  stage: test
+  image: grauwoelfchen/rust-ci-tools:nightly
+  before_script:
+    - rustc --version
+    - cargo --version
+    - kcov --version
+  script:
+    - make test
+  except:
+    - tags
+
+coverage:
+  stage: coverage
+  image: grauwoelfchen/rust-ci-tools:nightly
+  before_script:
+    - rustc --version
+    - cargo --version
+    - kcov --version
+  script:
+    - make coverage
+  after_script:
+    - cat target/coverage/index.json
+  except:
+    - tags
+
+build:
+  stage: build
+  image: grauwoelfchen/rust:latest
+  before_script:
+    - rustc --version
+    - cargo --version
+  script:
+    - make build
+  cache:
+    untracked: true
+  only:
+    - tags
+
+pages:
+  stage: pages
+  image: grauwoelfchen/rust:nightly
+  before_script:
+    - rustc --version
+    - cargo --version
+    - rustdoc --version
+  script:
+    - make doc
+    - mkdir public
+    - cp -R target/doc/* public/
+    - cd public/ && ln -s lexicon/index.html .
+  artifacts:
+    untracked: true
+    paths:
+      - public
+  only:
+    - master
