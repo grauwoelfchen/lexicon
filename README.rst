@@ -10,16 +10,24 @@ Lexicon
 
 Your team's lexicon using `.toml` with keys like `Cargo.toml`.
 
+Usage
+-----
+
+Lib
+~~~
+
 .. code:: rust
 
    // print packages
    let ws = workspace::load();
-   match ws.packages {
-     Some(packages) => for package in packages {
+   if let Some(packages) = ws.packages {
+     for package in packages {
        println!("{}", package);
-     },
-     None => (),
+     }
    }
+
+Cli
+~~~
 
 .. code:: zsh
 
