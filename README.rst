@@ -1,6 +1,13 @@
 Lexicon
 =======
 
+.. image:: https://gitlab.com/grauwoelfchen/lexicon/badges/master/pipeline.svg
+   :target: https://gitlab.com/grauwoelfchen/lexicon/commits/master
+
+.. image:: https://gitlab.com/grauwoelfchen/lexicon/badges/master/coverage.svg
+   :target: https://gitlab.com/grauwoelfchen/lexicon/commits/master
+
+
 Your team's lexicon using `.toml` with keys like `Cargo.toml`.
 
 .. code:: rust
